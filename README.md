@@ -14,6 +14,18 @@ There are 3 antennas :
 - You do NOT need to wire the antennas to the hub for them to function.
 - Antennas will ONLY work if they are wired to a circuit network.
 
+## Settings
+
+The mod has the following settings, which you shouldn't change if you don't know what you are doing :
+
+Map runtime:
+- Platforms evaluated per tick : the amount of platforms IPL will process per tick.
+- Requests evaluated per tick : the amount of individual item request IPL will process per tick.
+- Enable the gui on antennas : whether or not you should see the "display" functions of the antennas when you click on it. Disabled by default.
+
+Startup:
+- Enable channel encoding : whether or not the "advanced" channels mode is enabled. Channel encoding chances radically how channels are handled. Refer to the dedicated section below. Disabled by default.
+
 ## Provider Antenna (red):
 The Provider Antenna identifies which items are available for transport from a specific platform.
 
@@ -127,9 +139,8 @@ Below is a quick reference for signal up to 15, I'll let you figure out the rest
 Example: To communicate on channels 1, 3, and 4, use Signal C = 1 + 4 + 8 = 13
 
 ## Credits
+Thanks for the following people for helping me piece this together :
 
 Graphics : Galdoc
-
 Testing : Quaitgor
-
-Documentation : Mur
+Documentation : Muramas
