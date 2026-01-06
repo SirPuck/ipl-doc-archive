@@ -1,5 +1,73 @@
 [![Patreon](https://img.shields.io/badge/Patreon-Support%20me!-FF424D?logo=patreon&style=flat-square)](https://patreon.com/SirPuck) [![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&style=flat-square)](https://discord.gg/DBW37M34NX)
 
+# Compatibility Warning
+
+## PlanetsLib
+
+**If you're experiencing issues with IPL and use PlanetsLib version 1.15.0 or earlier, please read this section carefully.**
+
+## The Issue
+
+Several planet mods use PlanetsLib. While not directly incompatible with IPL, versions earlier than 1.15.1 can cause IPL to break under specific circumstances.
+
+## When Does This Happen?
+
+IPL will break **ONLY** if **ALL** of the following conditions occur together:
+
+1. You're using PlanetsLib version 1.15.0 or earlier
+2. Two platforms using IPL are stationed in orbit of a planet added by a mod that uses PlanetsLib
+3. That planet requires a specific technology to unlock cargo pod drops
+4. You have **not** researched that technology yet
+5. IPL attempted to send a cargo pod between these platforms, and PlanetsLib cancelled it
+   - You may have seen a message: `[Whisper] Unsafe cargo pod from... aborted`
+
+## What Happens?
+
+When PlanetsLib cancels a cargo pod, IPL's internal tracking becomes desynchronized. Your requester platforms in orbit of that planet will stop functioning correctly because they still "think" items are in transit.
+
+## How to Fix It
+
+If this happened to you:
+
+1. **Immediate fix:** Run this command in the console:
+   ```
+   /ipl-reset-podbuffer
+   ```
+   This clears IPL's tracking data and restores normal operation.
+
+2. **Permanent solution:** Update PlanetsLib to version 1.15.1 or later.
+
+## Burning Cargo Pods
+
+**The mod "Burning Cargo Pods" has the same issue as older PlanetsLib versions and is NOT compatible with IPL.**
+
+### Important Information
+
+- Burning Cargo Pods uses the same pod cancellation system that causes IPL to desynchronize
+- This mod is **deprecated** and will not receive any fixes
+- Burning Cargo Pods was **never** compatible with IPL and may have corrupted your save data
+- As of this version, Burning Cargo Pods is now marked as officially incompatible with IPL
+
+### If You Used Both Mods
+
+If you have been using Burning Cargo Pods alongside IPL and are experiencing issues:
+
+1. **Run the fix command:**
+   ```
+   /ipl-reset-podbuffer
+   ```
+
+2. **Uninstall Burning Cargo Pods immediately** to prevent further save corruption
+
+**Warning:** Do not reinstall Burning Cargo Pods if you plan to use IPL. These mods cannot work together.
+
+## Important Notes
+
+- Without updating PlanetsLib, IPL will break **again** each time it tries to send pods between platforms orbiting a locked planet
+- The fix command only addresses the symptom - the issue will recur until you update PlanetsLib
+- If you update PlanetsLib to 1.15.1+, this issue will not occur
+
+
 # General guidelines
 
 Unlock the corresponding tech. The research will be available after the logistic system and the space thrusters.
